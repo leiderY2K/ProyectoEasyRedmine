@@ -1,0 +1,40 @@
+<div [formGroup]="rowForm" class="imputation-row">
+
+    <!-- ISSUE -->
+    <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>petición</mat-label>
+        <mat-select formControlName="issue">
+            <mat-option *ngFor="let issue of issues" [value]="issue.id">
+                {{ issue.id }} - {{ issue.subject }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- HOURS -->
+    <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Horas</mat-label>
+        <input matInput type="number" formControlName="hours" step=0.25>
+    </mat-form-field>
+
+    <!-- COMMENTS -->
+    <mat-form-field appearance="outline" class="comments-field" subscriptSizing="dynamic">
+        <mat-label>Comentario</mat-label>
+        <input matInput type="text" formControlName="comment">
+    </mat-form-field>
+
+    <!-- ACTIVITY -->
+    <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Actividad</mat-label>
+        <mat-select formControlName="activityId">
+            <mat-option *ngFor="let activity of filteredActivities" [value]="activity.id">
+                {{ activity.name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- DELETE -->
+    <button mat-icon-button color="warn" class="delete-btn" (click)="removeRow.emit()" type="button">
+        <mat-icon>highlight_off</mat-icon>
+    </button>
+
+</div>

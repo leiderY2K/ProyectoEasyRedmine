@@ -1,0 +1,86 @@
+<div class="container">
+
+    <!-- HEADER -->
+    <mat-toolbar class="header">
+        <div class="header-left">
+            <mat-icon>task_alt</mat-icon>
+            <span class="title">EasyRedmine</span>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value">{{ totalTareas }}</div>
+                <div class="stat-label">Tareas</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-value">
+                    {{ totalHoras | number:'1.2-2' }}
+                </div>
+                <div class="stat-label">Horas</div>
+            </div>
+        </div>
+    </mat-toolbar>
+
+    <!-- CONTENT -->
+    <div class="table-container">
+
+        <div class="button-container">
+
+            <div class="btn-group">
+
+                <button mat-raised-button class="btn-add" (click)="addRow()">
+                    <mat-icon>add</mat-icon>
+                    Agregar Tarea
+                </button>
+
+                <button mat-raised-button class="btn-diario" (click)="addRowsDefault()">
+                    <mat-icon>event_repeat</mat-icon>
+                    Bloques Diarios
+                </button>
+
+            </div>
+
+            <mat-form-field appearance="outline" class="date-picker">
+                <mat-label>Fecha de imputación</mat-label>
+                <input matInput [matDatepicker]="picker" [formControl]="fechaControl">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+
+        <form [formGroup]="form">
+            <div formArrayName="imputation" class="table">
+
+                <!-- Header -->
+                <div class="table-header">
+                    <div>Petición</div>
+                    <div>Horas</div>
+                    <div>Comentario</div>
+                    <div>Actividad</div>
+                </div>
+
+                <!-- Rows -->
+                <app-imputation-row
+                    *ngFor="let rowForm of imputationArray.controls; let i = index; trackBy: trackByIndex"
+                    [rowForm]="$any(rowForm)" [issues]="issues" (removeRow)="removeRow(i)">
+                </app-imputation-row>
+
+            </div>
+        </form>
+
+    </div>
+
+    <div class="btns-inferiores">
+        <div class="actions">
+            <button mat-raised-button class="btn-imputar" (click)="submit()">IMPUTAR</button>
+        </div>
+
+        <div class="actions">
+            <button mat-raised-button class="btn-limpiar" (click)="cleanRows()">LIMPIAR FILAS</button>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,30 @@
+.material-row {
+    display: grid;
+    grid-template-columns:
+        120px
+        /* ISSUE */
+        100px
+        /* HOURS */
+        1fr
+        /* COMMENTS */
+        220px
+        /* ACTIVITY */
+        60px;
+    /* DELETE */
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+/* Compactar Angular Material */
+.material-row mat-form-field {
+    width: 100%;
+}
+
+.material-row .mat-mdc-form-field {
+    --mat-mdc-form-field-container-height: 48px;
+}
+
+.material-row button {
+    margin-top: 4px;
+}

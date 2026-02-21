@@ -1,0 +1,215 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+body {
+  background-color: #007cf9;
+}
+
+html {
+  height: 100%;
+  @include mat.theme((color: (primary: mat.$rose-palette,
+        tertiary: mat.$red-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    ));
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  //background-color: var(--mat-sys-surface);
+  background-color: #d4e1ee;
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+.container {
+  max-width: 1500px;
+  max-height: fit-content;
+  margin: 24px auto;
+  background: rgb(231, 237, 249);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1e3a8a;
+  align-items: center;
+  padding: 24px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.stats {
+  display: flex;
+  gap: 32px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.table-container {
+  padding: 14px 20px 12px 10px;
+}
+
+.btn-add {
+  background: #10b97e !important;
+  color: white !important;
+  margin-bottom: 24px;
+}
+
+.btn-imputar {
+  background: #10b97e !important;
+  color: white !important;
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+
+.btn-limpiar {
+  background: #f44336 !important;
+  color: white !important;
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+}
+
+.btns-inferiores {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.btn-diario {
+  background: #ce5911 !important;
+  color: white !important;
+  margin-bottom: 24px;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 12px;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 15% 15% 40% 20% 10%;
+  padding: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #475569;
+  border-bottom: 2px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+
+.header.mat-toolbar {
+  background-color: #1d4ed8;
+  height: 100px;
+  color: white;
+}
+
+.actions {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.imputation-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  width: 100%;
+}
+
+.imputation-row mat-form-field:nth-child(1) {
+  flex: 0.7;
+}
+
+.imputation-row mat-form-field:nth-child(2) {
+  flex: 0.6;
+  min-width: 80px;
+}
+
+.imputation-row mat-form-field:nth-child(3) {
+  flex: 3;
+}
+
+.imputation-row mat-form-field:nth-child(4) {
+  flex: 1.5;
+}
+
+.snack-success .mdc-snackbar__surface {
+  background-color: #2e7d32 !important;
+  color: white !important;
+}
+
+.snack-warning .mdc-snackbar__surface {
+  background-color: #f57c00 !important;
+  color: white !important;
+}
+
+.snack-error .mdc-snackbar__surface {
+  background-color: #c62828 !important;
+  color: white !important;
+}
